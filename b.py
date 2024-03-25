@@ -42,27 +42,39 @@ dalas = [
 
 window = sg.Window("Viktorina", dalas, resizable=True)
 
+atb = []
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:
         break 
     elif event == 'q':
-       pirmais=values["RADIO1"]
-       window["Multilains"].update(f"Jūsu atbilde:{pirmais}")
+       atb.append(values["VAR1"])
+       window["Multilains"].update(f"Jūsu atbilde:{values['VAR1']}\n")
     elif event == 'w':
-       otrais=values["RADIO2"]
+       atb.append(values["VAR4"])
+       window["Multilains"].update(f"Jūsu atbilde:{values['VAR4']}\n")
     elif event == 'e':
-       tres=values["RADIO3"]
+       cb_answers = [key for key, value in values.items() if key.startswith('VAR') and value]
+       atb.extend(cb_answers)
+       window["Multilains"].update(f"Jūsu atbildes: {' '.join(cb_answers)}\n")
     elif event == 'r':
-       cet=values["RADIO4"]
+       atb.append(values["VAR10"])
+       window["Multilains"].update(f"Jūsu atbilde:{values['VAR10']}\n")
     elif event == 't':
-       piek=values["RADIO5"]
+       atb.append(values["VAR13"])
+       window["Multilains"].update(f"Jūsu atbilde:{values['VAR13']}\n")
     elif event == 'y':
-       sest=values["RADIO6"]
+       atb.append(values["VAR16"])
+       window["Multilains"].update(f"Jūsu atbilde:{values['VAR16']}\n")
     elif event == 'u':
-       sept=values["RADIO7"]
+       atb.append(values["VAR19"])
+       window["Multilains"].update(f"Jūsu atbilde:{values['VAR19']}\n")
     elif event == 'i':
-       ast=values["RADIO8"]
+       atb.append(values["VAR20"])
+       window["Multilains"].update(f"Jūsu atbilde:{values['VAR19']}\n")
+       for answer in atb:
+           print(answer)
+       break
 
     
        
