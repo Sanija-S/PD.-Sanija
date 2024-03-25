@@ -32,7 +32,7 @@ dalas = [
     [sg.Button('Nākamais jautājums', key='u')],
 
     [sg.T("8. Kurā gadā notika Barikāžu diena?")],
-    [sg.Radio('Egils Levits', 'RADIO8', default=True, key='VAR4'), sg.Radio('Kārlis Ulmanis', 'RADIO8', key='VAR5'), sg.Radio('Edgars Rinkēvičs', 'RADIO8', key='VAR6')],
+    [sg.Radio('1990', 'RADIO8', default=True, key='VAR22'), sg.Radio('1991', 'RADIO8', key='VAR23'), sg.Radio('1993', 'RADIO8', key='VAR24')],
     [sg.Button('Nākamais jautājums', key='i')],
 
     [sg.Button("Pabeigt")],
@@ -54,9 +54,8 @@ while True:
        atb.append(values["VAR4"])
        window["Multilains"].update(f"Jūsu atbilde:{values['VAR4']}\n")
     elif event == 'e':
-       cb_answers = [key for key, value in values.items() if key.startswith('VAR') and value]
-       atb.extend(cb_answers)
-       window["Multilains"].update(f"Jūsu atbildes: {' '.join(cb_answers)}\n")
+      atb.append(values["VAR7"])
+      window["Multilains"].update(f"Jūsu atbilde:{values['VAR7']}\n")
     elif event == 'r':
        atb.append(values["VAR10"])
        window["Multilains"].update(f"Jūsu atbilde:{values['VAR10']}\n")
@@ -70,8 +69,8 @@ while True:
        atb.append(values["VAR19"])
        window["Multilains"].update(f"Jūsu atbilde:{values['VAR19']}\n")
     elif event == 'i':
-       atb.append(values["VAR20"])
-       window["Multilains"].update(f"Jūsu atbilde:{values['VAR19']}\n")
+       atb.append(values["VAR22"])
+       window["Multilains"].update(f"Jūsu atbilde:{values['VAR22']}\n")
        for answer in atb:
            print(answer)
        break
